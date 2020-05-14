@@ -1,0 +1,42 @@
+.nav {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    margin: auto;
+    z-index: 20;
+
+    @include respond(big-desktop) {
+        box-shadow: none;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    &--outside {
+        transition: $transition-scroll-header;
+        
+        .btn--nav, .btn--nav:visited, .btn--nav:active {
+            background: #004C65;
+            color: $color-white;
+            text-decoration: none;
+        }
+    }
+
+    &--onscroll {
+        box-shadow: 1px 1px 5px $color-dark;
+    }
+
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+
+    &__link, &__link:visited, &__link:active {
+        font-size: .9rem;
+        font-weight: 500;
+        margin: 20px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+}

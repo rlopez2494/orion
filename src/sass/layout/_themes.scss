@@ -1,0 +1,85 @@
+// These are classes to the body depending on the theme selected
+
+.light-mode {
+    background: $color-light-7;
+    color: $color-dark;
+
+    .header {
+        background: linear-gradient(to bottom, transparent, $color-light-5);
+    }
+
+    .nav {
+        &--onscroll {
+            background: $color-white;
+            box-shadow: 1px 1px 3px $color-dark;
+        }
+    }
+
+    .btn {
+        &--onscroll {
+            background: $color-white;
+        }
+    }
+
+    .section {
+
+        &--1 {
+            background: linear-gradient(to bottom, transparent, $color-light-3);
+        }
+
+        &--container {
+            background: linear-gradient(to bottom, transparent, $color-light-3);
+        }
+
+    }
+
+    .footer {
+        &__input, &__textarea {
+            background-color: $color-white;;
+            color: $color-dark-0;
+        }
+    }
+}
+
+.dark-mode {
+    background: $color-dark;
+    color: $color-white;
+
+    .header {
+        background: linear-gradient(to bottom, transparent, $color-dark-5);
+    }
+
+    .nav {
+        &--onscroll {
+            background: $color-dark;
+            box-shadow: 1px 1px 3px $color-dark;
+        }
+    }
+
+    .btn {
+        &--widget {
+            border: 1px solid $color-white;
+        }
+        &--onscroll {
+            background: $color-dark;
+        }
+    }
+
+    .section {
+        
+        &--1 {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $color-dark-5);
+        }
+
+        &--container {
+            background: linear-gradient(to bottom, transparent, $color-dark-6);
+        }
+    }
+
+    .footer {
+        &__input, &__textarea {
+            background-color: $color-dark-7;
+            color: $color-grey-6;
+        }
+    }
+}

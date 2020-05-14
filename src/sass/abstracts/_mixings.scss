@@ -1,0 +1,15 @@
+/**/
+
+@mixin respond($viewport) {
+    @if $viewport == phone {
+        @media (max-width: 460px) { @content };
+    }
+
+    @if $viewport == tablet {
+        @media (max-width: 768px) { @content };
+    }
+
+    @if $viewport == big-desktop {
+        @media (min-width: 1520px){ @content };
+    }
+}

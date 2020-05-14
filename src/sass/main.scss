@@ -1,0 +1,50 @@
+// Abstracts
+@import "abstracts/functions";
+@import "abstracts/mixings";
+@import "abstracts/variables";
+
+// Base 
+@import "base/base";
+@import "base/typography";
+@import "base/animations";
+@import "base/utilities";
+
+// Pages
+@import "pages/home";
+
+// Layout
+@import "layout/containers";
+@import "layout/flexbox";
+@import "layout/positions";
+@import "layout/section";
+@import "layout/themes";
+
+// Components
+@import "components/navbar";
+@import "components/buttons";
+@import "components/footer";
+@import "components/icons";
+@import "components/lists";
+@import "components/brand";
+
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html {
+    font-family: 'Poppins';
+    font-size: 16px;
+
+}
+
+@media screen and (max-width: 420px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+

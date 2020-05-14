@@ -28,8 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/main.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -93,7 +99,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/main.scss"
             ],
             "scripts": []
           }
