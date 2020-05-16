@@ -1,11 +1,23 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { debounce } from 'underscore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('fade-error', [
+      state('in', style({
+        'opacity': '1'
+      })),
+      state('void', style({
+        'opacity': '0'
+      })),
+      transition('void => *', animate(200))
+    ])
+  ]
 })
 export class AppComponent implements OnInit{
   title = 'orion-landing';

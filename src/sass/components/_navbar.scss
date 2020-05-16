@@ -15,8 +15,9 @@
         transition: $transition-scroll-header;
         
         .btn--nav, .btn--nav:visited, .btn--nav:active {
-            background: #004C65;
-            color: $color-white;
+            background: $color-light-1;
+            color: $color-dark-1;
+            font-size: 1.2rem;
             text-decoration: none;
         }
     }

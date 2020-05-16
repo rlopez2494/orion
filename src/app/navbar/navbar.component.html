@@ -1,0 +1,36 @@
+<div class="container flex flex--nav">
+
+    <ul class="navigation navigation--left">
+
+      <li class="list-item list-item--nav">
+        <a class="navigation__link" href="#header">Home</a>
+      </li>
+
+      <li class="list-item list-item--nav">
+        <a class="navigation__link" href="">Support</a>
+      </li>
+
+    </ul>
+
+    <ul class="navigation navigation--right">
+      
+      <li class="list-item list-item--nav">
+        <button 
+          class="btn btn--icon" 
+          (click)="onThemeSwitch()">
+
+          <i 
+            class="far" 
+            [ngClass]="(theme === 'dark-mode') ? 'fa-sun' : 'fa-moon'">
+          </i>
+
+      </button>
+      </li>
+
+      <li class="list-item list-item--nav">
+        <a href="#footer" class="btn btn--nav">Contact Us</a>
+      </li>
+      
+    </ul>
+
+  </div>

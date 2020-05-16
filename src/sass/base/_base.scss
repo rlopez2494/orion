@@ -50,9 +50,51 @@ table {
     border-spacing: 0;
 }
 
-// Custom CSS
+// Custom CSS & Resets
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins';
     transition: $transition-theme;
+}
+
+.heading {
+    &--center {
+        text-align: center;
+    }
+}
+
+.section {
+    min-height: 100vh;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+
+    &__horizontal-line {
+        margin: 15px auto;
+    }
+
+    &--1 {
+        clip-path: polygon(50% 0, 100% 0%, 100% 85%, 0% 100%, 0 0);
+        transition: $transition-theme;
+    }
+
+    &--container {
+        transition: $transition-theme;
+    }
+
+    @media screen and (max-width: 800px) {
+
+        &--1 {
+            align-items: center;
+        }
+
+    }
 }
 

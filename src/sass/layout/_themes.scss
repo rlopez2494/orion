@@ -5,7 +5,7 @@
     color: $color-dark;
 
     .header {
-        background: linear-gradient(to bottom, transparent, $color-light-5);
+        background: $color-light-5;
     }
 
     .nav {
@@ -35,14 +35,15 @@
 
     .footer {
         &__input, &__textarea {
-            background-color: $color-white;;
+            background-color: $color-white;
             color: $color-dark-0;
         }
+
     }
 }
 
 .dark-mode {
-    background: $color-dark;
+    background: $color-dark-1;
     color: $color-white;
 
     .header {
@@ -51,8 +52,8 @@
 
     .nav {
         &--onscroll {
-            background: $color-dark;
-            box-shadow: 1px 1px 3px $color-dark;
+            background: $color-dark-1;
+            box-shadow: 1px 1px 3px $color-dark-1;
         }
     }
 
@@ -78,8 +79,9 @@
 
     .footer {
         &__input, &__textarea {
-            background-color: $color-dark-7;
+            background-color: $color-dark-1;
             color: $color-grey-6;
         }
+
     }
 }

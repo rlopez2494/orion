@@ -1,0 +1,44 @@
+<div 
+    class="container container--flex"
+    [ngClass]="{
+      'container--reverse': inverted, 
+      'container--last': name === 'dev-plan'
+    }"
+    #fadeInWhenVisible>
+
+    <!-- Different animation if the section is inverted -->
+    <div 
+      class="section__left" 
+      [@fade1]="!(inverted) ? fadeElement1 : null"
+      [@fade2]="(inverted) ? fadeElement1 : null">
+
+      <h1 class="section__heading">{{ heading }}</h1>
+      
+      <img 
+        class="section__horizontal-line" 
+        [src]="'assets/images/line-1.svg'" 
+        alt="line-image">
+        
+      <p class="section__text">{{ text }}</p>
+
+    </div>
+  
+    <div 
+      class="section__right section__image-container"
+      
+      [ngClass]="{ 'section__showcase': (name === 'ui/ux-dev' || name === 'dev-plan') }">
+
+      <!-- Different animation if the section is inverted -->
+      <img 
+        [@fade2]="!(inverted) ? fadeElement2 : null"
+        [@fade1]="(inverted) ? fadeElement2 : null"
+        class="section__img" 
+        [src]="imgSrc" 
+        alt="showcase-desktop"
+        [ngClass]="{
+          'section__img--showcase' : theme === 'light-mode' 
+        }">
+
+    </div>
+
+</div>

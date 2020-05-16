@@ -1,3 +1,5 @@
+<!-- Widget for mobile devices -->
+
 <button 
   class="btn btn--widget"
   (click)="switchTheme()"
@@ -8,145 +10,80 @@
   </i>
 </button>
 
-<nav 
+<app-navbar 
   class="nav fixed nav--outside"
-  [ngClass]="(headerActive) ? 'nav--onscroll' : null ">
+  [ngClass]="(headerActive) ? 'nav--onscroll' : null "
+  [theme]="theme"
+  (switch)="switchTheme()">
 
-  <div class="container flex flex--nav">
+</app-navbar>
 
-    <ul class="navigation navigation--left">
+<!-- .header--container div to applying a filter -->
 
-      <li class="list-item list-item--nav">
-        <a class="navigation__link" href="#header">Home</a>
-      </li>
+<div class="header--container"> 
 
-      <li class="list-item list-item--nav">
-        <a class="navigation__link" href="">Support</a>
-      </li>
-
-    </ul>
-
-    <ul class="navigation navigation--right">
-      
-      <li class="list-item list-item--nav">
-        <button 
-          class="btn btn--icon" 
-          (click)="switchTheme()">
-
-          <i 
-            class="far" 
-            [ngClass]="(theme === 'dark-mode') ? 'fa-sun' : 'fa-moon'">
-          </i>
-
-      </button>
-      </li>
-
-      <li class="list-item list-item--nav">
-        <a href="#footer" class="btn btn--nav">Contact Us</a>
-      </li>
-      
-    </ul>
-
-  </div>
-
-</nav>
-
-<div class="header--container">
   <header class="header" id="header">
     
     <div class="brand">
 
-      <img [src]="(theme === 'dark-mode')? 'assets/svg/logo-orion-rlopez.svg' : 'assets/svg/logo-orion-black.svg'" alt="imagen" class="brand__img" />
+      <img [src]="(theme === 'dark-mode')? 'assets/images/logo-orion-rlopez.svg' : 'assets/images/logo-orion-black.svg'" alt="imagen" class="brand__img" />
 
       <div class="brand__banner">
-        <h1 class="brand__heading">Front-End Web Development</h1>
+        <h1 class="brand__heading">Full Stack Web Solutions</h1>
         <p class="brand__text">Javascript, HTML, CSS, Angular 8, NodeJS, Express, MongoDB...</p>
       </div>
       
     </div>
 
   </header>
+
 </div>
 
-<section class="section section--1">
-  <div class="container container--flex container--1">
+<app-section 
+  class="section section--1"
+  [theme]="theme"
+  [name]="'ui/ux-dev'"
+  [heading]="'Flawless User Interfaces'"
+  [text]="'We provide a wide range of custom web solutions to turn your ideas into fully supported web applications that meet your expectations and the needs of your customer base.'"
+  [imgSrc]="'assets/images/showcase-desktop.svg'"
+  [inverted]="false">
 
-    <div class="section__left">
-
-      <h1 class="section__heading">Flawless User Interfaces</h1>
-      <hr class="section__horizontal-line">
-      <p class="section__text">We provide a wide range of custom web solutions 
-        to turn your ideas into fully supported web 
-        applications that meet your expectations and the 
-        needs of your customer base.</p>
-
-    </div>
-  
-    <div class="section__right section__image-container section__showcase">
-
-      <img class="section__img section__img--showcase" src="assets/svg/showcase-desktop.svg" alt="showcase-desktop">
-
-    </div>
-
-  </div>
-  
-</section>
+</app-section>
 
 <div class="section--container">
 
-  <section class="section section--2">
-    
-    <div class="container container--flex container--1">
-    
-      <div class="section__left section__image-container">
+  <app-section
+    class="section"
+    [theme]="theme"
+    [name]="'api-dev'"
+    [heading]="'API Design & Development'"
+    [text]="'We use the optimal tools and techniques to develop public web services. Thus providing with an open API on top on your server to outside web-based solutions (web apps, other web services, etc.) through the network.'"
+    [imgSrc]="(theme === 'dark-mode') ? 'assets/images/dark2.png' : 'assets/images/light2.png'"
+    [inverted]="true">
+  </app-section>
   
-        <img class="section__img" src="assets/svg/backend.svg" alt="backend">
-  
-      </div>
+  <div class="container" [ngStyle]="{ 'overflow': 'hidden' }">
 
-      <div class="section__right">
-        <h1 class="section__heading">API Design & Development</h1>
+    <h1 class="section__heading heading--center">Our service options</h1>
 
-        <hr class="section__horizontal-line">
+    <img 
+        [ngStyle]="{ 'display': 'block' }"
+        class="section__horizontal-line" 
+        [src]="'assets/images/line-1.svg'" 
+        alt="line-image">
 
-        <p class="section__text">We use the optimal tools and techniques to
-          develop public web services. Thus providing with an 
-          open API on top on your server to outside web-based
-          solutions (web apps, other web services, etc.) through 
-          the network.</p>
-  
-      </div>
-  
-    </div>
+  </div>
 
-  </section>
+  <app-section
+    class="section"
+    [theme]="theme"
+    [name]="'dev-plan'"
+    [heading]="'Development from scratch'"
+    [text]="'Orion Software provides a couple of development methods based on the requirements of the application. We either create a path with all the requirements at the initial stage of the development (linear approach) or continuously adapt to changing project requirements (agile approach). '"
+    [imgSrc]="(theme === 'dark-mode') ? 'assets/images/dark.png' : 'assets/images/light.png'"
+    [inverted]="false">
+  </app-section>
 
-  <section class="section section--3">
-
-    <div class="container container--flex container--1">
-    
-      <div class="section__left section__image-container">
-  
-        <img class="section__img" src="assets/svg/services.svg" alt="backend">
-        
-      </div>
-
-      <div class="section__right">
-        <h1 class="section__heading">API Design & Development</h1>
-
-        <hr class="section__horizontal-line">
-
-        <p class="section__text">We use the optimal tools and techniques to
-          develop public web services. Thus providing with an 
-          open API on top on your server to outside web-based
-          solutions (web apps, other web services, etc.) through 
-          the network.</p>
-  
-      </div>
-  
-    </div>
-
-  </section>
 
   <footer class="footer" id="footer">
 
@@ -154,7 +91,10 @@
 
       <div class="footer__left">
 
-        <form [formGroup]="inquirySubmit" (ngSubmit)="submitInquiry()">
+        <form 
+          class="footer__form"
+          [formGroup]="inquirySubmit" 
+          (ngSubmit)="submitInquiry()">
 
           <h1 class="footer__heading">Lets get connected</h1>
   
@@ -163,7 +103,25 @@
             type="text" 
             [formControlName]="'email'"
             placeholder="Your Email">
-    
+
+          <p 
+            [@fade-error]
+            *ngIf="inquirySubmit.get('email').touched &&
+            inquirySubmit.get('email').errors &&
+            inquirySubmit.get('email').hasError('email')" 
+            class="paragraph paragraph--error">
+            <i class="fas fa-exclamation-triangle"></i>Please type a valid email
+          </p>
+
+          <p 
+            [@fade-error]
+            *ngIf="inquirySubmit.get('email').touched &&
+            inquirySubmit.get('email').errors &&
+            inquirySubmit.get('email').hasError('required')" 
+            class="paragraph paragraph--error">
+            <i class="fas fa-exclamation-triangle"></i>Email is required
+          </p>
+
           <textarea 
             [formControlName]="'inquiry'"
             class="footer__textarea" 
@@ -171,6 +129,15 @@
             rows="10"
             placeholder="Your Inquiry">
           </textarea>
+
+          <p 
+            [@fade-error]
+            *ngIf="inquirySubmit.get('inquiry').touched &&
+            inquirySubmit.get('inquiry').errors &&
+            inquirySubmit.get('inquiry').hasError('required')" 
+            class="paragraph paragraph--error">
+            <i class="fas fa-exclamation-triangle"></i>A message is required
+          </p>
 
       <div class="footer__btn-container">
         <button class="btn btn--footer">Submit</button>
@@ -182,10 +149,19 @@
   
       <div class="footer__right footer__image-container">
     
-        <img class="footer__img" src="assets/svg/orion-stars.svg" alt="backend">
+        <img class="footer__img" src="assets/images/orion-stars.svg" alt="backend">
         
       </div>
 
+    </div>
+
+    <div class="footer__contact">
+      <ul class="footer__nav">
+        <li><a class="footer__contact-link" href=""><i class="fas fa-envelope"></i></a></li>
+        <li><a class="footer__contact-link" href=""><i class="fab fa-telegram-plane"></i></a></li>
+        <li><a class="footer__contact-link" href=""><i class="fab fa-whatsapp"></i></a></li>
+        <li><a class="footer__contact-link" href="https://github.com/rlopez2494"><i class="fab fa-github"></i></a></li>
+      </ul>
     </div>
 
   </footer>

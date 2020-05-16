@@ -1,20 +1,40 @@
 .footer {
     background: transparent;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    &__nav {
+        display: flex;
+    }
+
+    &__contact {
+        margin: 40px auto 30px auto;
+    }
+
+    &__contact-link,
+    &__contact-link:visited,
+    &__contact-link:active {
+        color: $color-light-1;
+        font-size: 1.3rem;
+        margin: 0 8px;
+    }
 
     .btn--footer {
-        background: #004C65;
-        color: $color-white;
-        border: none;
+        border: 1px solid $color-dark-1;
         outline: none;
         box-shadow: 1px 1px 5px black;
         padding: 10px 25px;
-        border-radius: 5px;
         text-transform: uppercase;
-        font-weight: 300;
-        font-size: 1rem;
+        font-weight: 600;
+        font-size: 1.3rem;
+        background: $color-light-1;
+        color: $color-dark-1;
+    }
+
+    &__form {
+        width: 100%;
     }
 
     &__left {
@@ -41,6 +61,13 @@
     &__textarea,
     .btn--footer {
         margin: 10px 0;
+        width: 100%;
+        border-radius: 1px;
+    }
+
+    &__input.ng-invalid.ng-touched,
+    &__textarea.ng-invalid.ng-touched {
+        border: 1px solid red;
     }
 
     &__heading {
@@ -49,13 +76,12 @@
     }
 
     &__input, &__textarea {
-        border: none;
-        border-radius: 5px;
-        box-shadow: 1px 1px 5px black;
+        border: 1px solid $color-dark-1;
+        box-shadow: 1px 1px 3px black;
         padding: 15px 20px;
         font-size: 1.2rem;
         outline: none;
-        transition: $transition-theme;
+        transition: $transition-theme, border 150ms ease-in-out;
     }
 
     &__input {
@@ -67,7 +93,6 @@
         display: flex;
         justify-content: space-between;
         max-width: 1520px;
-        padding-bottom: 50px;
     }
 
     &__img-container {
@@ -89,10 +114,6 @@
 
         &__left {
             width: 90%
-        }
-
-        .btn--footer {
-            width: 100%;
         }
 
         &__container {
