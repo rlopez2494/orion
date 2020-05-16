@@ -2,6 +2,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { debounce } from 'underscore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { InquiryService } from './inquiry.service';
+
 
 @Component({
   selector: 'app-root',
@@ -19,12 +21,22 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
+
+
 export class AppComponent implements OnInit{
-  title = 'orion-landing';
+  constructor(private inquiryService: InquiryService) {}
+
+  // State variables
   theme: string;
   headerActive: boolean = false;
+  isLoading: boolean = false;
+  success: boolean = null;
+  error: string = null;
 
+  // Form Group
   inquirySubmit: FormGroup;
+
+
 
   ngOnInit() {
     this.theme = document.body.classList[0];
@@ -36,7 +48,7 @@ export class AppComponent implements OnInit{
         null,
         [Validators.required, Validators.email]
       ),
-      'inquiry': new FormControl(
+      'message': new FormControl(
         null,
         [Validators.required]
       )
@@ -45,7 +57,25 @@ export class AppComponent implements OnInit{
   }
 
   submitInquiry() {
-    console.log(this.inquirySubmit.value);
+
+    if(this.inquirySubmit.valid) {
+      this.isLoading = true;
+      this.success = false;
+      this.error = null;
+      const { email, message } = this.inquirySubmit.value;
+    
+    this.inquiryService.registerInquiry(email, message)
+      .subscribe(responseData => {
+        this.isLoading = false;
+        this.success = true;
+      },
+      (error) => {
+        this.isLoading = false;
+        this.error = 'Unexpected error, try again'
+        console.log(error);
+      })
+    }
+    
   }
 
   handleHeaderScroll(event: Event) {

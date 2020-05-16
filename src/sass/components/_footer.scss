@@ -31,6 +31,19 @@
         font-size: 1.3rem;
         background: $color-light-1;
         color: $color-dark-1;
+        filter: none;
+        transition: filter .2s ease, transform .2s ease;
+        cursor: pointer;
+        transform: scale(1);
+    }
+
+    .btn--footer:disabled {
+        filter: grayscale(100%);
+        cursor: default;
+    }
+
+    .btn--footer:active {
+        transform: scale(0.99);
     }
 
     &__form {

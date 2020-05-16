@@ -102,7 +102,7 @@
             class="footer__input"
             type="text" 
             [formControlName]="'email'"
-            placeholder="Your Email">
+            placeholder="Your email">
 
           <p 
             [@fade-error]
@@ -123,25 +123,57 @@
           </p>
 
           <textarea 
-            [formControlName]="'inquiry'"
+            [formControlName]="'message'"
             class="footer__textarea" 
             cols="30"
             rows="10"
-            placeholder="Your Inquiry">
+            placeholder="Your message">
           </textarea>
 
           <p 
             [@fade-error]
-            *ngIf="inquirySubmit.get('inquiry').touched &&
-            inquirySubmit.get('inquiry').errors &&
-            inquirySubmit.get('inquiry').hasError('required')" 
+            *ngIf="inquirySubmit.get('message').touched &&
+            inquirySubmit.get('message').errors &&
+            inquirySubmit.get('message').hasError('required')" 
             class="paragraph paragraph--error">
             <i class="fas fa-exclamation-triangle"></i>A message is required
           </p>
 
-      <div class="footer__btn-container">
-        <button class="btn btn--footer">Submit</button>
-      </div>
+          <div class="footer__btn-container">
+
+            <button [disabled]="!inquirySubmit.valid" class="btn btn--footer">Submit</button>
+
+          </div>
+
+          <div 
+            [@fade-error]
+            class="container container--loading"
+            *ngIf="isLoading">
+
+            <app-loading class="loading">
+
+            </app-loading>
+
+          </div>
+
+          <p 
+            [@fade-error]
+            class="paragraph paragraph--success"
+            *ngIf="success">
+
+            <i class="fas fa-check-circle"></i>The message has been sent successfully, we will contact you shortly by the email registered here.
+
+          </p>
+
+          <p 
+            [@fade-error]
+            class="paragraph paragraph--error"
+            *ngIf="error !== null">
+
+            <i class="fas fa-exclamation-triangle"></i>{{ error }}
+            
+          </p>
+
         </form>
         
   
