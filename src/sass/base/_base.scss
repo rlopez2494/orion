@@ -69,6 +69,88 @@ body {
     }
 }
 
+.paragraph {
+    margin: 5px 0;
+    font-size: 1.05rem;
+
+    &--success {
+        line-height: 30px;
+    }
+
+    &--img {
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+}
+
+.fa-sun, .fa-moon, .fa-lightbulb {
+    -webkit-background-clip: text;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fa-exclamation-triangle,
+.fa-check-circle {
+    margin-right: 10px;
+}
+
+.fa-exclamation-triangle {
+    color: red;
+}
+
+.fa-check-circle {
+    color: rgb(4, 199, 4);
+}
+
+.list {
+    &--api-dev, &--frontend {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+    }
+
+    &--frontend {
+        margin-top: 20px;
+    }
+    
+    &--api-dev {
+        margin-top: 30px;
+        padding: 0;
+        transition: padding .2s ease;
+    }
+
+    @media screen and (max-height: 850px) {
+        &--frontend {
+            display: none;
+        }
+    }
+    
+}
+
+.icon--sun {
+    filter: invert(100%);
+    width: 30px;
+}
+
+.img {
+
+    &--tools {
+        width: 100%;
+    }
+
+    &--frontend {
+        width: 40%;
+    }
+}
+
+.list-item--tools {
+    width: 25%;
+    text-align: center;
+}
+
 .section {
     min-height: 100vh;
     background: transparent;

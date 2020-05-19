@@ -15,39 +15,10 @@
     }
 }
 
-.fa-sun, .fa-moon, .fa-lightbulb {
-    color: inherit;
-    font-size: 200%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.fa-exclamation-triangle,
-.fa-check-circle {
-    margin-right: 10px;
-}
-
-.fa-exclamation-triangle {
-    color: red;
-}
-
-.fa-check-circle {
-    color: rgb(4, 199, 4);
-}
-
-.paragraph {
-    margin: 5px 0;
-    font-size: 1.05rem;
-
-    &--success {
-        line-height: 30px;
-    }
-}
-
 .loading {
     margin: auto;
 }
+
+
 
 

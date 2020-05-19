@@ -5,7 +5,7 @@
     color: $color-dark;
 
     .header {
-        background: $color-light-5;
+        background: linear-gradient(to top, $color-light-1, $color-light-3);
     }
 
     .nav {
@@ -33,12 +33,25 @@
 
     }
 
+    .list {
+        &--api-dev {
+            background: #333;;
+            padding: 15px 0;
+            border-radius: 3px;
+        }
+    }
+
     .footer {
         &__input, &__textarea {
             background-color: $color-white;
             color: $color-dark-0;
         }
 
+    }
+
+    .fa-sun, .fa-moon, .fa-lightbulb {
+        color: $color-dark-7;
+        background-clip: unset;
     }
 }
 
@@ -75,6 +88,10 @@
         &--container {
             background: linear-gradient(to bottom, transparent, $color-dark-6);
         }
+    }
+
+    .fa-sun, .fa-moon, .fa-lightbulb {
+        background-image: linear-gradient(to bottom right, $color-light-1 , $color-light-7);
     }
 
     .footer {

@@ -10,16 +10,42 @@
     <div 
       class="section__left" 
       [@fade1]="!(inverted) ? fadeElement1 : null"
-      [@fade2]="(inverted) ? fadeElement1 : null">
+      [@fade2]="(inverted) ? fadeElement1 : null"
+      [@fade-showcase]="sectionTextState">
 
-      <h1 class="section__heading">{{ heading }}</h1>
+      <h1
+      *ngIf="!swapContent" 
+      class="section__heading">{{ heading }}</h1>
+
+      <h1 
+        *ngIf="(name === 'dev-plan' && swapContent)" 
+        class="section__heading">{{ swapHeading }}</h1>
       
+
       <img 
         class="section__horizontal-line" 
         [src]="'assets/images/line-1.svg'" 
         alt="line-image">
         
-      <p class="section__text">{{ text }}</p>
+      <p 
+        *ngIf="!swapContent"
+        class="section__text">{{ text }}</p>
+
+      <p 
+        *ngIf="(name === 'dev-plan' && swapContent)" 
+        class="section__text">{{ swapText }}</p>
+
+      <ul class="list list--frontend" *ngIf="name === 'ui/ux-dev'">
+        <li class="list-item list-item--tools"><img class="img img--frontend" src="assets/images/angularjs-logo.svg" alt=""></li>
+        <li class="list-item list-item--tools"><p class="paragraph paragraph--img">HTML</p><img class="img img--frontend" src="assets/images/social-media.svg" alt=""></li>
+        <li class="list-item list-item--tools"><p class="paragraph paragraph--img">CSS</p><img class="img img--frontend" src="assets/images/css-logo.svg" alt=""></li>
+      </ul>
+
+      <ul class="list list--api-dev" *ngIf="name === 'api-dev'">
+        <li class="list-item list-item--tools"><img class="img img--tools" src="assets/images/nodejs-logo.svg" alt=""></li>
+        <li class="list-item list-item--tools"><img class="img img--tools" src="assets/images/express-logo.svg" alt=""></li>
+        <li class="list-item list-item--tools"><img class="img img--tools" src="assets/images/mongodb-logo.svg" alt=""></li>
+      </ul>
 
     </div>
   
@@ -31,12 +57,16 @@
       <!-- Different animation if the section is inverted -->
       <img 
         [@fade2]="!(inverted) ? fadeElement2 : null"
+        (@fade2.done)="thisFunction($event)"
         [@fade1]="(inverted) ? fadeElement2 : null"
+        (@fade1.done)="thisFunction($event)"
+        [@fade-showcase]="showcaseState"
         class="section__img" 
-        [src]="imgSrc" 
+        [src]="showcaseLink" 
         alt="showcase-desktop"
         [ngClass]="{
-          'section__img--showcase' : theme === 'light-mode' 
+          'section__img--showcase' : theme === 'light-mode',
+          'section__img--devices' : name === 'ui/ux-dev'
         }">
 
     </div>

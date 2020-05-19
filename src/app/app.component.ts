@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { debounce } from 'underscore';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -39,7 +39,19 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() {
-    this.theme = document.body.classList[0];
+    const localTheme = localStorage.getItem('theme');
+
+    if(localTheme) {
+
+      document.body.classList.add(localTheme);
+      this.theme = localTheme;
+      
+    } else {
+
+      document.body.classList.add('dark-mode');
+      this.theme = 'dark-mode';
+
+    }
 
     document.addEventListener('scroll', debounce(this.handleHeaderScroll.bind(this), 50))
 
@@ -91,11 +103,17 @@ export class AppComponent implements OnInit{
   switchTheme() {
     if (document.body.classList[0] === 'dark-mode') {
       document.body.classList.replace('dark-mode', 'light-mode');
+
       this.theme = 'light-mode'
+      
+      localStorage.setItem('theme', this.theme);
 
     } else if (document.body.classList[0] === 'light-mode'){
         document.body.classList.replace('light-mode', 'dark-mode');
+
         this.theme = 'dark-mode'
+
+        localStorage.setItem('theme', this.theme);
     }
   }
 }
