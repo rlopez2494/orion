@@ -1,7 +1,7 @@
 .nav {
     display: flex;
     width: 100%;
-    height: 80px;
+    height: 70px;
     margin: auto;
     z-index: 20;
 
@@ -13,18 +13,10 @@
 
     &--outside {
         transition: $transition-scroll-header;
-        
-        .btn--nav, .btn--nav:visited, .btn--nav:active {
-            background: $color-light-1;
-            color: $color-dark-1;
-            font-size: 1.2rem;
-            font-weight: 400;
-            text-decoration: none;
-        }
     }
 
     &--onscroll {
-        box-shadow: 1px 1px 5px $color-dark;
+        box-shadow: 1px 1px 3px $color-dark;
     }
 
 }
