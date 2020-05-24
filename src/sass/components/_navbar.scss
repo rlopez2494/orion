@@ -4,15 +4,13 @@
     height: 70px;
     margin: auto;
     z-index: 20;
+    color: $color-white;
+    transition: $transition-scroll-header;
 
     @include respond(big-desktop) {
         box-shadow: none;
         left: 50%;
         transform: translate(-50%);
-    }
-
-    &--outside {
-        transition: $transition-scroll-header;
     }
 
     &--onscroll {

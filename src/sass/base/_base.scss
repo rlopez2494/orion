@@ -69,6 +69,10 @@ body {
     }
 }
 
+.float-right {
+    float: right;
+}
+
 .paragraph {
     margin: 5px 0;
     font-size: 1.05rem;
@@ -90,6 +94,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.fa-telegram-plane, .fa-user, .fa-envelope {
+    margin-right: 10px;
+}
+
+.label {
+    font-size: 1.3rem;
 }
 
 .fa-exclamation-triangle,
@@ -151,32 +163,4 @@ body {
     text-align: center;
 }
 
-.section {
-    min-height: 100vh;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    overflow-x: hidden;
-
-    &__horizontal-line {
-        margin: 15px auto;
-    }
-
-    &--1 {
-        clip-path: polygon(50% 0, 100% 0%, 100% 85%, 0% 100%, 0 0);
-        transition: $transition-theme;
-    }
-
-    &--container {
-        transition: $transition-theme;
-    }
-
-    @media screen and (max-width: 800px) {
-
-        &--1 {
-            align-items: center;
-        }
-
-    }
-}
 

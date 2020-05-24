@@ -56,6 +56,10 @@ export class AppComponent implements OnInit{
     document.addEventListener('scroll', debounce(this.handleHeaderScroll.bind(this), 50))
 
     this.inquirySubmit = new FormGroup({
+      'name': new FormControl(
+        null,
+        [Validators.required]
+      ),
       'email': new FormControl(
         null,
         [Validators.required, Validators.email]
@@ -74,9 +78,9 @@ export class AppComponent implements OnInit{
       this.isLoading = true;
       this.success = false;
       this.error = null;
-      const { email, message } = this.inquirySubmit.value;
+      const { name, email, message } = this.inquirySubmit.value;
     
-    this.inquiryService.registerInquiry(email, message)
+    this.inquiryService.registerInquiry(email, name, message)
       .subscribe(responseData => {
         this.isLoading = false;
         this.success = true;

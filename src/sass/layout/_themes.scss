@@ -1,18 +1,16 @@
 // These are classes to the body depending on the theme selected
 
-// Text made for remote commit purporses
-
 .light-mode {
     background: $color-light-7;
     color: $color-dark;
 
     .header {
-        background: linear-gradient(to top left, $color-light-1, $color-light-3);
+        background: $color-light-1;
     }
 
     .nav {
         &--onscroll {
-            background: $color-white;
+            background: $color-light-1;
             box-shadow: 1px 1px 3px $color-dark;
         }
     }
@@ -26,11 +24,11 @@
     .section {
 
         &--1 {
-            background: linear-gradient(to bottom, transparent, $color-light-3);
+            background: linear-gradient(to bottom, $color-light-7, $color-light-3);
         }
 
         &--container {
-            background: linear-gradient(to bottom, transparent, $color-light-3);
+            background: linear-gradient(to bottom, $color-white, $color-light-5);
         }
 
     }
@@ -44,8 +42,9 @@
     }
 
     .footer {
+        background: $color-light-1;
         &__input, &__textarea {
-            background-color: $color-white;
+            background: #D8E3EE;
             color: $color-dark-0;
         }
 
@@ -58,16 +57,16 @@
 }
 
 .dark-mode {
-    background: $color-dark-1;
     color: $color-white;
+    background-color: #041826;
 
     .header {
-        background: linear-gradient(to bottom, transparent, $color-dark-5);
+        background: $color-dark-6
     }
 
     .nav {
         &--onscroll {
-            background: $color-dark-1;
+            background: $color-dark-6;
             box-shadow: 1px 1px 3px $color-dark-1;
         }
     }
@@ -84,11 +83,11 @@
     .section {
         
         &--1 {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $color-dark-5);
+            background: linear-gradient(to bottom, #041826, $color-dark-6);
         }
 
         &--container {
-            background: linear-gradient(to bottom, transparent, $color-dark-6);
+            background: linear-gradient(to bottom, $color-dark-1, #052033);
         }
     }
 
@@ -97,6 +96,8 @@
     }
 
     .footer {
+        background: $color-dark-6;
+
         &__input, &__textarea {
             background-color: $color-dark-1;
             color: $color-grey-6;

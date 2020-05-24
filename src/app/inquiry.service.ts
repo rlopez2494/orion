@@ -8,8 +8,8 @@ import { environment } from '../environments/environment';
 export class InquiryService {
     constructor(private http: HttpClient) {}
 
-    registerInquiry(email: string, message: string): Observable<any> {
-        const body = { email, message };
+    registerInquiry(email: string, name: string, message: string): Observable<any> {
+        const body = { email, name, message };
         return this.http.post( `${environment.apiRoute}/messages.json`, {...body});
     }
 }

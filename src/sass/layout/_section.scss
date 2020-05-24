@@ -1,8 +1,18 @@
 @import "../abstracts/variables";
 
 .section {
-    min-height: 100vh;
-    background: transparent;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px 0;
+
+    &__horizontal-line {
+        margin: 15px auto;
+    }
+
+    &--container {
+        transition: $transition-theme;
+    }
 
     &--flex {
         display: flex;
@@ -51,16 +61,19 @@
     
     &--container {
         transition: $transition-theme;
+        margin-top: -100px;
+        padding: 100px 0;
+        clip-path: ellipse(100% 50%);
     }
     
     &--1 {
-        clip-path: polygon(50% 0, 100% 0%, 100% 85%, 0% 100%, 0 0);
         display: flex;
         align-items: center;
         transition: $transition-theme;
+        padding-bottom: 150px;
     }
 
-    @media screen and (max-width: 1500px) {
+    @media screen and (max-width: 1720px) {
         &__right, &__left {
             margin: 30px 0;
         }
