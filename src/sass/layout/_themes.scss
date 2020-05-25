@@ -2,7 +2,7 @@
 
 .light-mode {
     background: $color-light-7;
-    color: $color-dark;
+    color: $color-black;
 
     .header {
         background: $color-light-1;
@@ -11,13 +11,22 @@
     .nav {
         &--onscroll {
             background: $color-light-1;
-            box-shadow: 1px 1px 3px $color-dark;
+            box-shadow: 1px 1px 3px $color-black;
         }
     }
 
     .btn {
+        &--widget {
+            background: $color-white;
+            color: $color-dark-5;
+        }
+
         &--onscroll {
             background: $color-white;
+        }
+
+        &--footer {
+            background: $color-dark-6;
         }
     }
 
@@ -35,7 +44,7 @@
 
     .list {
         &--api-dev {
-            background: #333;;
+            background: $color-grey-1;
             padding: 15px 0;
             border-radius: 3px;
         }
@@ -44,7 +53,7 @@
     .footer {
         background: $color-light-1;
         &__input, &__textarea {
-            background: #D8E3EE;
+            background: $color-light-6;
             color: $color-dark-0;
         }
 
@@ -58,10 +67,10 @@
 
 .dark-mode {
     color: $color-white;
-    background-color: #041826;
+    background-color: $color-black-1;
 
     .header {
-        background: $color-dark-6
+        background: $color-dark-6;
     }
 
     .nav {
@@ -73,21 +82,27 @@
 
     .btn {
         &--widget {
-            border: 1px solid $color-white;
+            background-color: rgba($color: $color-black, $alpha: .5);
         }
+
         &--onscroll {
-            background: $color-dark;
+            background: $color-black;
         }
+
+        &--footer {
+            background: $color-light-1;
+        }
+
     }
 
     .section {
         
         &--1 {
-            background: linear-gradient(to bottom, #041826, $color-dark-6);
+            background: linear-gradient(to bottom, $color-black-1, $color-dark-6);
         }
 
         &--container {
-            background: linear-gradient(to bottom, $color-dark-1, #052033);
+            background: linear-gradient(to bottom, $color-dark-1, $color-black-2);
         }
     }
 
@@ -99,7 +114,7 @@
         background: $color-dark-6;
 
         &__input, &__textarea {
-            background-color: $color-dark-1;
+            background-color: $color-black-2;
             color: $color-grey-6;
         }
 

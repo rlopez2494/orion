@@ -19,6 +19,19 @@
     margin: auto;
 }
 
+.footer {
+    padding-top: 150px;
+    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: $color-white;
+
+    @media screen and (max-width: $breakpoint-tablet-2) { margin-top: -135px; }
+    
+}
+
 
 
 

@@ -57,9 +57,9 @@
       <!-- Different animation if the section is inverted -->
       <img 
         [@fade2]="!(inverted) ? fadeElement2 : null"
-        (@fade2.done)="thisFunction($event)"
+        (@fade2.done)="onSwapContent($event)"
         [@fade1]="(inverted) ? fadeElement2 : null"
-        (@fade1.done)="thisFunction($event)"
+        (@fade1.done)="onSwapContent($event)"
         [@fade-showcase]="showcaseState"
         class="section__img" 
         [src]="showcaseLink" 

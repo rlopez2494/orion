@@ -9,13 +9,13 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
-  @Input() theme: string;
+  // Event emitter to switch between themes
   @Output() switch: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
   }
 
-  onThemeSwitch() {
+  onThemeSwitch() {  
     this.switch.emit({});
   }
 

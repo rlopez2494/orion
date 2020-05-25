@@ -1,0 +1,128 @@
+@import "abstracts/variables";
+@import "components/buttons";
+
+.footer {
+
+    &__nav {
+        display: flex;
+    }
+
+    &__input-group {
+        display: inline-block;
+        width: 45%;
+        margin-bottom: 18px;
+    }
+
+    &__contact {
+        margin: 40px auto 30px auto;
+    }
+
+    &__contact-link,
+    &__contact-link:visited,
+    &__contact-link:active {
+        color: $color-light-5;
+        font-size: 1.3rem;
+        margin: 0 8px;
+    }
+
+    &__form {
+        width: 100%;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &__left, &__right {
+        width: 50%;
+    }
+
+    &__img {
+        width: 50%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__heading, 
+    &__input, 
+    &__textarea {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    &__input.ng-invalid.ng-touched,
+    &__textarea.ng-invalid.ng-touched {
+        border: 1px solid red;
+    }
+
+    &__heading {
+        color: $color-white;
+        font-size: $heading-size-1;
+        margin-bottom: 50px;
+    }
+
+    &__input, &__textarea {
+        border: none;
+        border-radius: 5px;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+        outline: none;
+        transition: $transition-theme, border 150ms ease-in-out;
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__container {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        max-width: 1520px;
+    }
+
+    &__img-container {
+        position: relative;
+    }
+
+    &__btn-container {
+        text-align: right;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-2) {
+
+        &__img {
+            width: 75%;
+        }
+        
+        &__right {
+            display: none;
+        }
+
+        &__left {
+            width: 90%
+        }
+
+        &__container {
+            justify-content: center;
+        }
+
+    }
+
+    @media screen and (max-width: $breakpoint-tablet-1) {
+        &__input-group {
+            display: block;
+            width: 80%;
+        }
+
+        &__input-group.float-right {
+            float: none;
+        }
+      
+    }
+
+}

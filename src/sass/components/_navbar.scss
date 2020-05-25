@@ -7,14 +7,14 @@
     color: $color-white;
     transition: $transition-scroll-header;
 
-    @include respond(big-desktop) {
+    @media screen and (min-width: 1520px) {
         box-shadow: none;
         left: 50%;
         transform: translate(-50%);
     }
 
     &--onscroll {
-        box-shadow: 1px 1px 3px $color-dark;
+        box-shadow: 1px 1px 3px $color-black;
     }
 
 }

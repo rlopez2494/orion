@@ -1,24 +1,23 @@
-<!-- Widget for mobile devices -->
+<!-- Switch theme button for mobile devices -->
 
 <button 
   class="btn btn--widget"
   (click)="switchTheme()"
   [ngClass]="(headerActive) ? 'btn--onscroll' : null ">
-  <i 
-    class="far" 
-    [ngClass]="(theme === 'dark-mode') ? 'fa-sun' : 'fa-moon'">
-  </i>
+  <i class="fas fa-adjust"></i>
 </button>
 
+
+<!-- Navbar component -->
 <app-navbar 
   class="nav fixed"
   [ngClass]="(headerActive) ? 'nav--onscroll' : null "
-  [theme]="theme"
   (switch)="switchTheme()">
 
 </app-navbar>
 
-<!-- .header--container div to applying a filter -->
+
+<!-- .header--container div to applying a filter shadow -->
 
 <div class="header--container"> 
 
@@ -39,6 +38,9 @@
 
 </div>
 
+
+<!-- Sections -->
+
 <app-section 
   class="section section--1"
   [theme]="theme"
@@ -54,10 +56,13 @@
 
 </app-section>
 
+
+<!-- Section container to apply the ellipse shape -->
+
 <div class="section--container">
 
   <app-section
-    class="section"
+    class="section section--2"
     [theme]="theme"
     [name]="'api-dev'"
     [heading]="'API Design & Development'"
@@ -66,7 +71,7 @@
     [inverted]="true">
   </app-section>
   
-  <!-- <div class="container" [ngStyle]="{ 'overflow': 'hidden' }">
+  <div class="container" [ngStyle]="{ 'overflow': 'hidden' }">
 
     <h1 class="section__heading heading--center">Our service options</h1>
 
@@ -76,7 +81,7 @@
         [src]="'assets/images/line-1.svg'" 
         alt="line-image">
 
-  </div> -->
+  </div>
 
   <app-section
     class="section"
@@ -90,148 +95,14 @@
 
 </div>
 
-<footer class="footer" id="footer">
 
-  <div class="container footer__container">
+<!-- Footer component -->
 
-    <div class="footer__left">
+<app-footer 
+  class="footer" 
+  id="footer"
+  [theme]='theme'>
+</app-footer>
 
-      <form 
-        class="footer__form"
-        [formGroup]="inquirySubmit" 
-        (ngSubmit)="submitInquiry()">
 
-        <h1 class="footer__heading">Lets get connected</h1>
-
-        <div class="footer__input-group">
-
-          <label class="label" for="email"><i class="fas fa-envelope"></i>Email</label>
-          <input 
-          id="email"
-          class="footer__input"
-          type="text" 
-          [formControlName]="'email'">
-
-          <p 
-            [@fade-error]
-            *ngIf="inquirySubmit.get('email').touched &&
-            inquirySubmit.get('email').errors &&
-            inquirySubmit.get('email').hasError('email')" 
-            class="paragraph paragraph--error">
-            <i class="fas fa-exclamation-triangle"></i>Please type a valid email
-          </p>
-
-          <p 
-            [@fade-error]
-            *ngIf="inquirySubmit.get('email').touched &&
-            inquirySubmit.get('email').errors &&
-            inquirySubmit.get('email').hasError('required')" 
-            class="paragraph paragraph--error">
-            <i class="fas fa-exclamation-triangle"></i>Email is required
-          </p>
-          
-        </div>
-
-        <div class="footer__input-group float-right">
-
-          <label class="label" for="name"><i class="fas fa-user"></i>Name</label>
-
-          <input 
-          id="name"
-          class="footer__input"
-          type="text" 
-          [formControlName]="'name'">
-
-          <p 
-            [@fade-error]
-            *ngIf="inquirySubmit.get('name').touched &&
-            inquirySubmit.get('name').errors &&
-            inquirySubmit.get('name').hasError('required')" 
-            class="paragraph paragraph--error">
-            <i class="fas fa-exclamation-triangle"></i>Name is required
-          </p>
-
-        </div>
-
-        <div class="footer__textarea-group">
-
-          <label class="label" for="message"><i class="fab fa-telegram-plane"></i>Message</label>
-
-          <textarea 
-            id="message"
-            [formControlName]="'message'"
-            class="footer__textarea" 
-            cols="30"
-            rows="10">
-          </textarea>
-
-          <p 
-            [@fade-error]
-            *ngIf="inquirySubmit.get('message').touched &&
-            inquirySubmit.get('message').errors &&
-            inquirySubmit.get('message').hasError('required')" 
-            class="paragraph paragraph--error">
-            <i class="fas fa-exclamation-triangle"></i>A message is required
-          </p>
-
-        </div>
-
-        <div class="footer__btn-container">
-
-          <button [disabled]="!inquirySubmit.valid" class="btn btn--footer">Submit</button>
-
-        </div>
-
-        <div 
-          [@fade-error]
-          class="container container--loading"
-          *ngIf="isLoading">
-
-          <app-loading class="loading">
-
-          </app-loading>
-
-        </div>
-
-        <p 
-          [@fade-error]
-          class="paragraph paragraph--success"
-          *ngIf="success">
-
-          <i class="fas fa-check-circle"></i>The message has been sent successfully, we will contact you shortly by the email registered here.
-
-        </p>
-
-        <p 
-          [@fade-error]
-          class="paragraph paragraph--error"
-          *ngIf="error !== null">
-
-          <i class="fas fa-exclamation-triangle"></i>{{ error }}
-          
-        </p>
-
-      </form>
-      
-
-    </div>
-
-    <div class="footer__right footer__image-container">
-  
-      <img class="footer__img" [src]="(theme === 'light') ? 'assets/images/orion-stars-light.svg' : 'assets/images/orion-stars.svg'" alt="orion-stars">
-      
-    </div>
-
-  </div>
-
-  <div class="footer__contact">
-    <ul class="footer__nav">
-      <li><a class="footer__contact-link" href=""><i class="fas fa-envelope"></i></a></li>
-      <li><a class="footer__contact-link" href=""><i class="fab fa-telegram-plane"></i></a></li>
-      <li><a class="footer__contact-link" href=""><i class="fab fa-whatsapp"></i></a></li>
-      <li><a class="footer__contact-link" href="https://github.com/rlopez2494"><i class="fab fa-github"></i></a></li>
-    </ul>
-  </div>
-
-</footer>
 

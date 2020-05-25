@@ -1,5 +1,5 @@
 .btn {
-    box-shadow: 1px 1px 3px $color-dark;
+    box-shadow: 1px 1px 3px $color-black;
 
     &--nav {
         font-size: .9rem;
@@ -8,14 +8,40 @@
         text-decoration: none;
         border-radius: .25rem;
         padding: 6px 25px;
-        color: $color-dark;
+        color: $color-black;
         font-size: 1.1rem;
         font-weight: 300;
     }
 
+    &--footer {
+        margin: 10px 0;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        box-shadow: 1px 1px 3px black;
+        padding: 15px 0;
+        font-weight: 500;
+        font-size: 1.3rem;
+        color: $color-white;
+        filter: none;
+        transition: filter .2s ease, transform .2s ease;
+        cursor: pointer;
+        transform: scale(1);
+    }
+
+    &--footer:disabled {
+        filter: grayscale(100%);
+        cursor: default;
+    }
+
+    &--footer:active {
+        transform: scale(0.99);
+    }
+
     &--icon {
-        background: #004C65;
-        color: $color-dark;
+        background: rgba($color: $color-black, $alpha: .5);
+        color: $color-black;
         position: relative;
         outline: none;
         padding: 10px;
@@ -25,19 +51,15 @@
         border: none;
         border-radius: 50%;
         box-shadow: none;
+        cursor: pointer;
 
-        .fa-sun, .fa-moon, .fa-lightbulb {
-            font-size: 200%;
-        }
-
-        @include respond (phone) {
+        @media screen and (max-width: $breakpoint-mobile-3) {
             display: none;
         }
     }
 
     &--widget {
         color: inherit;
-        background: rgba(0, 0, 0, 0);
         outline: 0;
         width: 45px;
         height: 45px;
@@ -55,7 +77,7 @@
             font-size: 200%;
         }
 
-        @include respond(phone) {
+        @media screen and (max-width: $breakpoint-mobile-3) {
             display: inline-block;
         }
     }
@@ -63,7 +85,7 @@
     
 }
 
-@media (max-width: 330px) {
+@media screen and (max-width: $breakpoint-mobile-1) {
     .btn {
         &--nav {
             padding: 10px;

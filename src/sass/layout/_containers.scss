@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: $breakpoint-tablet-2) {
         .container--flex {
             flex-direction: column;
         }

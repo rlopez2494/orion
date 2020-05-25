@@ -22,7 +22,7 @@
         margin: auto
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: $breakpoint-tablet-2) {
         &__img {
             transform: scale(1.1);
             margin-bottom: 50px;

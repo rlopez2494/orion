@@ -1,43 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { debounce } from 'underscore';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { InquiryService } from './inquiry.service';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('fade-error', [
-      state('in', style({
-        'opacity': '1'
-      })),
-      state('void', style({
-        'opacity': '0'
-      })),
-      transition('void => *', animate(200))
-    ])
-  ]
 })
 
-
 export class AppComponent implements OnInit{
-  constructor(private inquiryService: InquiryService) {}
+  constructor() {}
 
   // State variables
   theme: string;
+
+  // Variable to handle navbar styling if the user scrolls down
   headerActive: boolean = false;
-  isLoading: boolean = false;
-  success: boolean = null;
-  error: string = null;
-
-  // Form Group
-  inquirySubmit: FormGroup;
 
 
-
+  // Check if its a theme already saved in localstorage.
+  // If not, apply default theme (dark)
   ngOnInit() {
     const localTheme = localStorage.getItem('theme');
 
@@ -53,47 +34,12 @@ export class AppComponent implements OnInit{
 
     }
 
+    // Get the last event of the scroll events (made possible with 'debounce' function from 'underscorejs')
     document.addEventListener('scroll', debounce(this.handleHeaderScroll.bind(this), 50))
 
-    this.inquirySubmit = new FormGroup({
-      'name': new FormControl(
-        null,
-        [Validators.required]
-      ),
-      'email': new FormControl(
-        null,
-        [Validators.required, Validators.email]
-      ),
-      'message': new FormControl(
-        null,
-        [Validators.required]
-      )
-    })
-
   }
 
-  submitInquiry() {
-
-    if(this.inquirySubmit.valid) {
-      this.isLoading = true;
-      this.success = false;
-      this.error = null;
-      const { name, email, message } = this.inquirySubmit.value;
-    
-    this.inquiryService.registerInquiry(email, name, message)
-      .subscribe(responseData => {
-        this.isLoading = false;
-        this.success = true;
-      },
-      (error) => {
-        this.isLoading = false;
-        this.error = 'Unexpected error, try again'
-        console.log(error);
-      })
-    }
-    
-  }
-
+  // Navbar style change if the user scrolls down
   handleHeaderScroll(event: Event) {
 
     if(scrollY < 15) {
@@ -104,6 +50,7 @@ export class AppComponent implements OnInit{
 
   }
 
+  // Switch theme and save theme on local storage
   switchTheme() {
     if (document.body.classList[0] === 'dark-mode') {
       document.body.classList.replace('dark-mode', 'light-mode');

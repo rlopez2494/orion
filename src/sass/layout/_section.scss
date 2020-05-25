@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     overflow-x: hidden;
-    padding: 20px 0;
+    padding: 40px 0;
 
     &__horizontal-line {
         margin: 15px auto;
@@ -73,13 +73,17 @@
         padding-bottom: 150px;
     }
 
-    @media screen and (max-width: 1720px) {
+    &--2 {
+        padding-bottom: 80px;
+    }
+
+    @media screen and (max-width: $breakpoint-desktop-2) {
         &__right, &__left {
             margin: 30px 0;
         }
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: $breakpoint-tablet-2) {
 
         &__img {
             width: 75%;
@@ -100,6 +104,10 @@
 
         &__image-container {
             text-align: center;
+        }
+
+        &--container {
+            margin-top: -135px;
         }
     }
 }

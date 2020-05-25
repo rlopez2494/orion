@@ -1,45 +1,61 @@
-// Primary
-$color-primary: #1976d2;
+// Base colors
+$color-white: #FFFFFF;
+$color-black: #00080A;
 
+// Black color variants
+$color-black-1: #041826;
+$color-black-2: #052033;
 
-// Secondary
-$color-secondary: #112232;
-
-
-// Accent Colors
-$color-accent-1: #F05D5E;
-
-// Dark
-$color-dark: #00080A;
-$color-dark-0: #011B23;
+// Dark blue shades
 $color-dark-1: #000a0e;
-$color-dark-2: #024a63;
+$color-dark-0: #011B23;
 $color-dark-5: #012B39;
 $color-dark-6: #00345C;
 $color-dark-7: #093C4D;
+$color-dark-2: #024a63;
 
-
-// Grey shades
-$color-grey-6: #B5B5B5;
-
-// White
-$color-white: #FFFFFF;
-$color-light-7: #EFF6FC;
-$color-light-5: #BBD5F0; 
-$color-light-3: #69ADF3;
+// Light blue variants
 $color-light-1: #0971A6;
+$color-light-3: #69ADF3;
 $color-light-2: #00bbf9;
+$color-light-5: #BBD5F0;
+$color-light-6: #D8E3EE;
+$color-light-7: #EFF6FC;
 
-// Test
-$border-test: 1px solid black;
+// Grey variants
+$color-grey-6: #B5B5B5;
+$color-grey-1: #333333;
 
 // Transition values
 $transition-theme: background 300ms ease-in-out, color 500ms ease-in-out;
-
 $transition-scroll-header: background 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
-
 
 // Heading Font Sizes
 $heading-size-1: 2.3rem;
+
+
+/*----------- Responsive width breakpoints -----------*/
+
+// Desktop
+$breakpoint-desktop-1: 1520px;
+$breakpoint-desktop-2: 1720px;
+
+// Tablet
+$breakpoint-tablet-1: 600px;
+$breakpoint-tablet-2: 800px;
+$breakpoint-tablet-3: 850px;
+
+// Mobile
+$breakpoint-mobile-1: 330px;
+$breakpoint-mobile-2: 420px;
+$breakpoint-mobile-3: 450px;
+
+
+/*----------- Responsive height breakpoints -----------*/
+
+$breakpoint-height-1: 850px;
+
+
+
 
 

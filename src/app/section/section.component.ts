@@ -58,19 +58,24 @@ export class SectionComponent implements OnInit {
 
   constructor() { }
 
-  // Input variables
+  // Theme input
+  @Input() theme: string;
+
+  // Section content input
   @Input() name: string;
   @Input() heading: string;
   @Input() text: string;
   @Input() imgSrc: string[];
+
+  // Variable to invert the section layout ( switch text/image sides )
   @Input() inverted: boolean;
-  @Input() theme: string;
+  
 
   // Animation state variables
   fadeElement1: string = 'faded';
   fadeElement2: string = 'faded';
 
-  // Showcase variables
+  // Image showcase variables
   showcaseLink: string;
   showcaseState: string = 'faded';
 
@@ -86,12 +91,38 @@ export class SectionComponent implements OnInit {
   ngOnInit() {
     this.showcaseLink = this.imgSrc[0];
 
+    // Get the last event from the scroll events (made possible with the 'debounce' function from underscore js)
     document.addEventListener('scroll', debounce(this.scrollHandler.bind(this), 50));
-
   }
 
-  thisFunction(event: AnimationEvent) {
+  // Animation activation when the section is visible on the device's viewport
+  scrollHandler(event: any) {
 
+    const element = this.fadeWhenVisible.nativeElement;
+    
+    const windowTop = window.pageYOffset;
+    const windowBottom = windowTop + window.innerHeight;
+
+    const elementTop = element.offsetTop;
+    const elementBottom = element.offsetTop + element.offsetHeight;
+
+    const elementInsideWindow = 
+    (elementTop <= windowBottom && elementTop >= windowTop) || 
+    (elementBottom >= windowTop && elementBottom <= windowBottom);
+
+    const fadedToNormal = 
+      (this.fadeElement1 === 'normal') && 
+      (this.fadeElement2 === 'normal');
+
+    if(elementInsideWindow && !fadedToNormal){
+      this.fadeElement1 = 'normal';
+      this.fadeElement2 = 'normal';
+    }
+  }
+
+  onSwapContent(event: AnimationEvent) {
+
+    // Execute swapping functions (text or images) depending on the section
 
     if(event.toState === 'normal') {
 
@@ -107,6 +138,8 @@ export class SectionComponent implements OnInit {
     }
 
   }
+
+  // Switch the images in the 'ui/ux dev' section
 
   changeImages() {
 
@@ -140,6 +173,9 @@ export class SectionComponent implements OnInit {
     },3000)
   }
 
+
+  // Switch the images in the 'dev-plan' section
+
   changeSectionText() {
 
     setInterval(() => {
@@ -154,8 +190,6 @@ export class SectionComponent implements OnInit {
           this.swapContent = true;
         }
 
-        
-
         setTimeout(() => {
           this.sectionTextState = 'visible';
         }, 200);
@@ -163,30 +197,6 @@ export class SectionComponent implements OnInit {
       }, 320);
 
     },15000)
-  }
-
-  scrollHandler(event: any) {
-
-    const element = this.fadeWhenVisible.nativeElement;
-    
-    const windowTop = window.pageYOffset;
-    const windowBottom = windowTop + window.innerHeight;
-
-    const elementTop = element.offsetTop;
-    const elementBottom = element.offsetTop + element.offsetHeight;
-
-    const elementInsideWindow = 
-    (elementTop <= windowBottom && elementTop >= windowTop) || 
-    (elementBottom >= windowTop && elementBottom <= windowBottom);
-
-    const fadedToNormal = 
-      (this.fadeElement1 === 'normal') && 
-      (this.fadeElement2 === 'normal');
-
-    if(elementInsideWindow && !fadedToNormal){
-      this.fadeElement1 = 'normal';
-      this.fadeElement2 = 'normal';
-    }
   }
 
 }
